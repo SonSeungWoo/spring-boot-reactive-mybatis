@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.seungwoo.mapper.PersonMapper">
+    <select id="select" resultType="person">
+        SELECT ID
+              ,NAME
+              ,AGE
+              ,COUNTRY
+          FROM PERSON
+         WHERE ID = #{id}
+    </select>
+
+    <select id="selectHandler" resultType="person">
+        SELECT ID
+              ,NAME
+              ,AGE
+              ,COUNTRY
+          FROM PERSON
+         WHERE ID = #{id}
+    </select>
+
+    <select id="selectAll" resultType="person">
+        SELECT ID
+              ,NAME
+              ,AGE
+              ,COUNTRY
+          FROM PERSON
+    </select>
+
+    <insert id="insert">
+      INSERT INTO PERSON (id, name, age, country)
+      VALUES (#{id}, #{name}, #{age}, #{country})
+    </insert>
+
+    <insert id="saveTest">
+      INSERT INTO PERSON (id, name, age, country)
+      VALUES (#{id}, #{name}, #{age}, #{country})
+    </insert>
+</mapper>
