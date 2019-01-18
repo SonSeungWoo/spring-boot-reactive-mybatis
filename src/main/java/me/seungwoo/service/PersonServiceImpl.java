@@ -5,15 +5,13 @@ import me.seungwoo.domain.Person;
 import me.seungwoo.mapper.PersonMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 import java.util.List;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class PersonServiceImpl implements PersonService{
+public class PersonServiceImpl implements PersonService {
 
     private final PersonMapper personMapper;
 
@@ -28,18 +26,18 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Override
-    public Mono<Void> insert(Person person) {
-        return personMapper.insert(person);
+    public void insert(Person person) {
+        personMapper.insert(person);
     }
 
     @Override
-    public Mono<Void> update(Person person) {
-        return personMapper.update(person);
+    public void update(Person person) {
+        personMapper.update(person);
     }
 
     @Override
-    public Mono<Void> delete(Person person) {
-        return personMapper.delete(person);
+    public void delete(Person person) {
+        personMapper.delete(person);
     }
 
 }

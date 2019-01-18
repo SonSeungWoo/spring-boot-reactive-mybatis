@@ -1,7 +1,6 @@
 package me.seungwoo.service;
 
 import me.seungwoo.domain.Person;
-import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -11,9 +10,9 @@ public interface PersonService {
 
     List<Person> selectAll();
 
-    Mono<Void> insert(Person person);
+    void insert(Person person);
 
-    Mono<Void> update(Person person);
+    void update(Person person);
 
-    Mono<Void> delete(Person person);
+    void delete(Person person);
 }

@@ -2,7 +2,6 @@ package me.seungwoo.mapper;
 
 import me.seungwoo.domain.Person;
 import org.apache.ibatis.annotations.Mapper;
-import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -13,10 +12,10 @@ public interface PersonMapper {
 
     List<Person> selectAll();
 
-    Mono<Void> insert(Person person);
+    void insert(Person person);
 
-    Mono<Void> update(Person person);
+    void update(Person person);
 
-    Mono<Void> delete(Person person);
+    void delete(Person person);
 
 }
