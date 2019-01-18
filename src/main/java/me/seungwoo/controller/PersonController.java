@@ -6,14 +6,9 @@ import me.seungwoo.domain.Person;
 import me.seungwoo.service.PersonService;
 import org.json.JSONObject;
 import org.json.XML;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Scheduler;
-
-import java.util.concurrent.Callable;
 
 /**
  * webflux 기존방식
@@ -36,21 +31,19 @@ public class PersonController {
     }
 
     @PostMapping("/person")
-    public Mono<ResponseEntity<Person>> createPerson(@RequestBody Person person) {
-        return personService.saveTest(person)
-                .map(m -> new ResponseEntity<>(m, HttpStatus.OK));
-
+    public Mono<Void> createPerson(@RequestBody Person person) {
+        return personService.insert(person);
     }
 
-    /*@PutMapping("/person")
-    public Mono<Person> updatePerson(@RequestBody Person person) {
+    @PutMapping("/person")
+    public Mono<Void> updatePerson(@RequestBody Person person) {
         return personService.update(person);
     }
 
     @DeleteMapping("/person")
-    public Mono<Boolean> deletePerson(@RequestBody Person person) {
+    public Mono<Void> deletePerson(@RequestBody Person person) {
         return personService.delete(person);
-    }*/
+    }
 
     @GetMapping(value = "/data/json", produces = "application/json;")
     public Mono<String> getJson() {

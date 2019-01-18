@@ -17,33 +17,6 @@ public class PersonServiceImpl implements PersonService{
 
     private final PersonMapper personMapper;
 
-    //함수형 방식
-    @Override
-    public Mono<Person> findbyId(int id) {
-        return null;
-    }
-
-    @Override
-    public Flux<Person> findAll() {
-        return null;
-    }
-
-    @Override
-    public Mono<Person> save(Person person) {
-        return null;
-    }
-
-    @Override
-    public Mono<Person> modify(Person person) {
-        return null;
-    }
-
-    @Override
-    public Mono<Boolean> personDelete(Person person) {
-        return null;
-    }
-
-    //기존 방식
     @Override
     public Person select(int id) {
         return personMapper.select(id);
@@ -55,22 +28,18 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Override
-    public void insert(Person person) {
-        personMapper.insert(person);
+    public Mono<Void> insert(Person person) {
+        return personMapper.insert(person);
     }
 
     @Override
-    public void update(Person person) {
-
+    public Mono<Void> update(Person person) {
+        return personMapper.update(person);
     }
 
     @Override
-    public void delete(Person person) {
-
+    public Mono<Void> delete(Person person) {
+        return personMapper.delete(person);
     }
 
-    @Override
-    public Mono<Person> saveTest(Person person) {
-        return personMapper.saveTest(person);
-    }
 }

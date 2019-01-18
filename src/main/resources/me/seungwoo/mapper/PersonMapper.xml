@@ -34,9 +34,4 @@
       INSERT INTO PERSON (id, name, age, country)
       VALUES (#{id}, #{name}, #{age}, #{country})
     </insert>
-
-    <insert id="saveTest">
-      INSERT INTO PERSON (id, name, age, country)
-      VALUES (#{id}, #{name}, #{age}, #{country})
-    </insert>
 </mapper>

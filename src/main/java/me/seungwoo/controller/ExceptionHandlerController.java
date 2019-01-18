@@ -24,13 +24,13 @@ public class ExceptionHandlerController {
     @ResponseStatus(HttpStatus.CONFLICT)
     public Mono<String> handleNumberFormatlict(IllegalArgumentException e) {
         log.info("==============handleNumberFormatlict=============");
-        return Mono.just(e.getMessage());
+        return Mono.just("Exception" + e.getMessage());
     }
 
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public Mono<String> handleNotFoundException(IllegalArgumentException e) {
         log.info("==============handleNotFoundException=============");
-        return Mono.just(e.getMessage());
+        return Mono.just("Exception" + e.getMessage());
     }
 }

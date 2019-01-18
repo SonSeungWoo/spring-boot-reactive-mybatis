@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Data
 @Alias("person")
 public class Person implements Serializable {
-
+    
     private static final long serialVersionUID = -4133391005111212357L;
 
     private int id;
