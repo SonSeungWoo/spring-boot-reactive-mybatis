@@ -27,7 +27,7 @@ public class PersonController {
 
     @GetMapping("/person/{id}")
     public Mono<Person> getPerson(@PathVariable int id) {
-        return Mono.just(personService.select(id));
+        return Mono.fromCallable(() -> personService.select(id));
     }
 
     @GetMapping("/persons")
@@ -36,8 +36,8 @@ public class PersonController {
     }
 
     @PostMapping("/person")
-    public void createPerson(@RequestBody Person person) {
-        personService.insert(person);
+    public Mono<Void> createPerson(@RequestBody Person person) {
+        return Mono.fromRunnable(() -> personService.insert(person));
     }
 
     @PutMapping("/person")
